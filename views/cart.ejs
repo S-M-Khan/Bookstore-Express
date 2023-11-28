@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <title>brainBOOST - Cart Items</title>
+</head>
+
+<body class="text-center">
+    <header class="bg-[#f8f8f8] py-9 mb-20 sticky top-0 md:py-12">
+        <div class="width max-width flex justify-between md:items-center" id="header_content_container">
+            <img src="images/book icon.svg" alt="website logo" class="hidden w-16 md:block" id="website_logo">
+            <div class="ml-3 relative hover:cursor-pointer md:order-1" id="shoppingCart">
+                <i class="bi bi-cart2 text-4xl bg-black text-white rounded-md px-2 py-1"></i>
+                <p class="absolute -top-6 -right-2 bg-red-700 text-white px-2 py-1 rounded-md" id="quantityInCart">0</p>
+            </div>
+            <nav class="hidden md:block" id="navigation">
+                <ul class="md:flex md:justify-between md:items-center">
+                    <li class="my-3 hover:font-bold md:ml-6"><a href="/">Home</a></li>
+                    <li class="my-3 hover:font-bold md:ml-6"><a href="/books">Books</a></li>
+                    <li class="my-3 hover:font-bold md:ml-6"><a href="/bestsellers">Best Sellers</a></li>
+                    
+                    <!-- <li class="my-3 md:ml-6"><button class="rounded-full px-5 py-2 bg-black text-white hover:bg-inherit hover:text-black hover:border hover:border-black" id="loginButton">Log In</button></li> -->
+                </ul>
+            </nav>
+            <img src="images/hamburger menu.svg" alt="hamburger menu" class="w-8 cursor-pointer md:hidden" id="hamburger">
+            <img src="images/close menu.svg" alt="close menu mobile" class="hidden cursor-pointer w-8 md:hidden"
+            id="close_mobile_menu">
+        </div>
+    </header>
+    <div class="width max-width">
+        <p class="text-3xl md:text-4xl md:my-6 font-bold">Items in Cart</p>
+
+        <!-- <% for (let i = 0; i < cartItems.length; i++) { %>
+            <p><%= cartItems[i].length %></p>
+
+            <% for (let j = 0; j < cartItems[i].length; j++) { %>
+
+                <div id="<%= cartItems[i][j].id %>" class="my-16 py-5 rounded md:relative md:flex md:justify-center">
+                    <img src="<%= cartItems[i][j].image %>" alt="<%= cartItems[i][j].title %>" class="w-32 h-32 mx-auto rounded md:mx-0 md:h-52 md:w-52">
+                    <div class="md:mx-10 md:max-w-xs">
+                        <p class="text-lg font-bold my-4 capitalize"><%= cartItems[i][j].title %></p>
+                        <p class="my-4 capitalize"><span class="font-bold">Author</span>: <%= cartItems[i][j].author %></p>
+                        <p class="my-4"><span class="font-bold">Price</span>: <%= cartItems[i][j].price %></p>
+                        <div class="flex justify-center my-4">
+                        <i class="bi bi-dash-lg font-bold text-red-700" onclick="decreaseQuantity('<%= cartItems[i][j].id %>')"></i>
+                        <p id="quantity-<%= cartItems[i][j].id %>" class="mx-3"> <%= cartItems[i][j].quantity %></p>
+                        <i class="bi bi-plus-lg font-bold text-green-700" onclick="increaseQuantity('<%= cartItems[i][j].id %>')"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <button onclick="removeItem('<%= cartItems[i][j].id %>')" class="text-white rounded-full my-5 md:ml-20 md:my-20 py-3 px-5 bg-red-500">Remove</button>
+                    </div>
+                </div>
+               
+            
+            <% } %>
+            
+        <% } %> -->
+
+        
+        <div id="cartContainer" class="width max-width ">
+            
+        <div class="flex justify-center my-10 md:my-14">
+            <button class="bg-green-500 text-white py-3 px-5 mx-5 rounded-full" id="checkOutButton">Checkout</button>
+            <button class="bg-red-500 text-white py-3 px-5 mx-5 rounded-full" id="clearCartButton">Clear Cart</button>
+        </div>
+
+            <% for (let j = 0; j < cartItems.length; j++) { %>
+
+                <div id="<%= cartItems[j].id %>" class="my-16 md:my-20 py-5 md:flex md:justify-center">
+                    <img src="<%= cartItems[j].image %>" alt="<%= cartItems[j].title %>" class="w-32 h-32 mx-auto rounded md:mx-0 md:h-52 md:w-52">
+                    <div class="md:mx-10 md:max-w-xs">
+                        <p class="text-lg font-bold my-4 capitalize"><%= cartItems[j].title %></p>
+                        <p class="my-4 capitalize"><span class="font-bold">Author</span>: <%= cartItems[j].author %></p>
+                        <p class="my-4"><span class="font-bold">Price</span>: <%= cartItems[j].price %></p>
+                        <div class="flex justify-center my-4">
+                        <i class="bi bi-dash-lg font-bold cursor-pointer text-red-700" onclick="decreaseQuantity('<%= cartItems[j].id %>')"></i>
+                        <p id="quantity-<%= cartItems[j].id %>" class="mx-3"> <%= cartItems[j].quantity %></p>
+                        <i class="bi bi-plus-lg font-bold cursor-pointer text-green-700" onclick="increaseQuantity('<%= cartItems[j].id %>')"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <button onclick="removeItem('<%= cartItems[j].id %>')" class="text-white rounded-full my-5 md:ml-20 md:my-20 py-3 px-5 bg-red-500">Remove</button>
+                    </div>
+                </div> 
+            <% } %>
+        </div>
+    </div>
+    
+    <%- include('footer.ejs') %>
+
+    <script src="js/app.js" type="module"></script>
+    <script>
+        const cartItems = JSON.parse(localStorage.getItem('cartItems'));
+        let totalItems = cartItems.length;
+        
+        function decreaseQuantity(id) {
+        const foundItem = cartItems.find((element) => element.id === id);
+
+        if (foundItem) {
+            if (Number(foundItem.quantity) === 1) {
+                // console.log(index);
+                // console.log(removedItem);
+                removeItem(id)
+            } else {
+                foundItem.quantity = Number(foundItem.quantity) - 1;
+                --totalItems;
+                localStorage.setItem('cartItems', JSON.stringify(cartItems));
+                const newQuantity = document.getElementById(`quantity-${id}`);
+                newQuantity.textContent = Number(foundItem.quantity);
+                const quantityInCart = document.getElementById('quantityInCart');
+                quantityInCart.textContent = totalItems;
+            }
+        }
+    }
+
+        function increaseQuantity(id) {
+            const foundItem = cartItems.find((element) => element.id === id);
+
+            if (foundItem) {
+                foundItem.quantity = Number(foundItem.quantity) + 1;
+                ++totalItems;
+                localStorage.setItem('cartItems', JSON.stringify(cartItems));
+                const newQuantity = document.getElementById(`quantity-${id}`);
+                newQuantity.textContent = Number(foundItem.quantity);
+                const quantityInCart = document.getElementById('quantityInCart');
+                quantityInCart.textContent = totalItems;
+            }
+        }
+
+        function removeItem(id) {
+            const foundItem = cartItems.find((element) => element.id === id);
+
+            if (foundItem) {
+                totalItems = totalItems - Number(foundItem.quantity);
+                quantityInCart.textContent = totalItems;
+                const index = cartItems.indexOf(foundItem);
+                const removedItem = cartItems.splice(index, 1);
+                localStorage.setItem('cartItems', JSON.stringify(cartItems));
+                document.getElementById(id).innerHTML = '';
+
+                // if(totalItems === 0) {
+                //     localStorage.clear();
+                //     window.location.href = '/emptycart';
+                // }
+
+                if(totalItems === 0) {
+                    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+                    (async function() {
+                        await fetch('/add-to-cart', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: (localStorage.getItem('cartItems'))
+                    })
+                    .then((response) => {
+                        if(response.ok) {
+                            window.location.href = '/emptycart';
+                            // const result = await response.json();
+                            // console.log(typeof result)
+                            // if(result === 'empty') {
+                            //     window.location.href = '/emptycart';
+                            // }
+                        }
+                        else {
+                            console.log('Response not OK');
+                        }
+                    })
+                    .catch((error) => {
+                        console.log("There was an error " + error);
+                    })
+                    })()
+                }
+
+                else {
+                    (async function() {
+                        await fetch('/add-to-cart', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: (localStorage.getItem('cartItems'))
+                    })
+                    .then((response) => {
+                        if(response.ok) {
+                            window.location.href = '/cart';
+                        }
+                        else {
+                            console.log('Response not OK');
+                        }
+                    })
+                    .catch((error) => {
+                        console.log("There was an error " + error);
+                    })
+                    })()
+                }
+                
+            }
+        }
+
+        const clearCartButton = document.getElementById('clearCartButton');
+        clearCartButton.addEventListener('click', async () => {
+            //localStorage.clear();
+            cartItems.splice(0, cartItems.length);
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            
+            const cartContainer = document.getElementById('cartContainer');
+            cartContainer.innerHTML = '';
+
+            await fetch('/add-to-cart', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: (localStorage.getItem('cartItems'))
+                })
+                .then((response) => {
+                    if(response.ok) {
+                        window.location.href = '/emptycart';
+                    }
+                    else {
+                        console.log('Response not OK');
+                    }
+                })
+                .catch((error) => {
+                    console.log("There was an error " + error);
+                })
+        });
+
+        const checkOutButton = document.getElementById('checkOutButton');
+        if(JSON.parse(localStorage.getItem('cartItems')).length === 0) {
+            checkOutButton.disabled = true;
+        }
+        
+        checkOutButton.addEventListener('click', async () => {
+            
+            await fetch('/post-to-checkout', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: (localStorage.getItem('cartItems'))
+                })
+                .then((response) => {
+                    if(response.ok) {
+                        window.location.href = '/checkout';
+                    }
+                    else {
+                        console.log('Response not OK');
+                    }
+                })
+                .catch((error) => {
+                    console.log("There was an error " + error);
+                })
+        });
+
+    </script>
+</body>
+</html>

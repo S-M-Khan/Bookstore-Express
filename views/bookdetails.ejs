@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <title>brainBOOST - Book Details</title>
+</head>
+<body class="text-center">
+    <header class="bg-[#f8f8f8] py-5 mb-20 md:py-12">
+        <div class="width max-width flex justify-between" id="header_content_container">
+            <img src="images/book icon.svg" alt="website logo" class="w-16" id="website_logo">
+            <nav class="hidden md:block" id="navigation">
+                <ul class="md:flex md:justify-between md:items-center">
+                    <li class="my-3 md:ml-6"><a href="/">Home</a></li>
+                    <li class="my-3 hover:font-bold md:ml-6"><a href="/books">Books</a></li>
+                    <li class="my-3 hover:font-bold md:ml-6"><a href="/bestsellers">Best Sellers</a></li>
+                    <li class="my-3 md:ml-6"><button class="rounded-full px-5 py-2 bg-black text-white hover:bg-inherit hover:text-black hover:border hover:border-black" id="loginButton">Log In</button></li>
+                </ul>
+            </nav>
+            <img src="images/hamburger menu.svg" alt="hamburger menu" class="w-8 md:hidden" id="hamburger">
+            <img src="images/close menu.svg" alt="close menu mobile" class="hidden w-8 md:hidden" id="close_mobile_menu">
+        </div>
+    </header>
+    <div class="width max-width flex justify-between items-start">
+        <img src="/images/<%= book.genre %>/<%= book.title %>.jpg" alt="<%= book.title %>">
+        <div>
+            <p class="text-5xl"><%= book.title %></p>
+            <p>Author: <%= book.author %></p>
+            <p>Genre: <%= book.genre %></p>
+            <p>Pages: <%= book.pages %></p>
+            <button class="bg-black text-white rounded-full px-8 py-2 md:float-left">ADD TO CART</button>
+        </div>
+    </div>
+    <script src="js/app.js" type="module"></script>
+</body>
+</html>

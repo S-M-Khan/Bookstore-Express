@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <title>brainBOOST - Login</title>
+</head>
+<body class="text-center">
+    <header class="bg-[#f8f8f8] py-5 mb-20 md:py-12">
+        <div class="width max-width flex justify-between" id="header_content_container">
+            <img src="images/book icon.svg" alt="website logo" class="w-16" id="website_logo">
+            <nav class="hidden md:block" id="navigation">
+                <ul class="md:flex md:justify-between md:items-center">
+                    <li class="my-3 hover:font-bold md:ml-6"><a href="/">Home</a></li>
+                    <li class="my-3 hover:font-bold md:ml-6"><a href="/books">Books</a></li>
+                    <li class="my-3 hover:font-bold md:ml-6"><a href="/bestsellers">Best Sellers</a></li>
+                    <li class="my-3 md:ml-6"><button class="rounded-full px-5 py-2 bg-black text-white hover:bg-inherit hover:text-black hover:border hover:border-black">Log In</button></li>
+                </ul>
+            </nav>
+        <img src="images/hamburger menu.svg" alt="hamburger menu" class="w-8 md:hidden" id="hamburger">
+        <img src="images/close menu.svg" alt="close menu mobile" class="hidden w-8 md:hidden" id="close_mobile_menu">
+        </div>
+    </header>
+    <form action="/user-sign-in" method="POST" id="form" autocomplete="off">
+        <legend class="text-3xl font-bold width max-width my-10 md:w-1/2 lg:w-1/3">Log In</legend>
+
+        <label for="username" class="block width max-width text-left my-3 md:w-1/2 lg:w-1/3">Email</label>
+        <input type="email" name="email" id="email" class="border border-black rounded block width max-width mb-8 px-5 py-2 md:w-1/2 lg:w-1/3" required>
+
+        <label for="password" class="block width max-width text-left my-3 md:w-1/2 lg:w-1/3">Password</label>
+        <input type="password" name="password" id="password" class="border border-black rounded block width max-width mb-8 px-5 py-2 md:w-1/2 lg:w-1/3" required>
+
+        <input type="submit" name="Login" value="Log In" class="bg-black text-white rounded-full px-5 py-2 block width max-width my-12 cursor-pointer md:w-1/2 lg:w-1/3 hover:bg-inherit hover:text-black hover:border hover:border-black">
+        
+        <p>Don't have an account yet? <a href="/register" class="font-bold underline">Create one</a></p>
+    </form>
+    <footer class="bg-[#f8f8f8]"></footer>
+    <!-- <script src="script/server.js"></script> -->
+    <script src="js/app.js"></script>
+</body>
+</html>

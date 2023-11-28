@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <title>brainBOOST- Register</title>
+</head>
+<body class="text-center">
+    <header class="bg-[#f8f8f8] py-5 mb-20 md:py-12">
+        <div class="width max-width flex justify-between" id="header_content_container">
+            <img src="images/book icon.svg" alt="website logo" class="w-16" id="website_logo">
+            <nav class="hidden md:block" id="navigation">
+                <ul class="md:flex md:justify-between md:items-center">
+                    <li class="my-3 hover:font-bold md:ml-6"><a href="/">Home</a></li>
+                    <li class="my-3 hover:font-bold md:ml-6"><a href="/books">Books</a></li>
+                    <li class="my-3 hover:font-bold md:ml-6"><a href="/bestsellers">Best Sellers</a></li>
+                    <li class="my-3 md:ml-6"><button class="rounded-full px-5 py-2 bg-black text-white hover:bg-inherit hover:text-black hover:border hover:border-black" id="loginButton">Log In</button></li>
+                </ul>
+            </nav>
+        <img src="images/hamburger menu.svg" alt="hamburger menu" class="w-8 md:hidden" id="hamburger">
+        <img src="images/close menu.svg" alt="close menu mobile" class="hidden w-8 md:hidden" id="close_mobile_menu">
+        </div>
+    </header>
+    <form action="/register-user" method="POST" id="form" autocomplete="off">
+        <legend class="text-3xl font-bold width max-width my-10 md:w-1/2 lg:w-1/3">Create an account</legend>
+
+        <label class="block width max-width text-left my-3 md:w-1/2 lg:w-1/3" for="email">Email</label>
+        <input class="border border-black rounded block width max-width mb-8 px-5 py-2 md:w-1/2 lg:w-1/3" name="email" type="email" id="email" required>
+
+        <label class="block width max-width text-left my-3 md:w-1/2 lg:w-1/3" for="username">Username</label>
+        <input class="border border-black rounded block width max-width px-5 py-2 mb-8 md:w-1/2 lg:w-1/3" name="username" type="text" id="username" required>
+
+        <label class="block width max-width text-left my-3 md:w-1/2 lg:w-1/3" for="password">Password</label>
+        <input class= "border border-black rounded block width max-width px-5 py-2 mb-8 md:w-1/2 lg:w-1/3" name="password" type="password" id="password" required>
+
+        <input class="bg-black text-white rounded-full px-5 py-2 block width cursor-pointer max-width my-12 md:w-1/2 lg:w-1/3 hover:bg-inherit hover:text-black hover:border hover:border-black" type="submit" name="register" value="Register">
+    </form>
+    <footer class="bg-[#f8f8f8]"></footer>
+    <!-- <script src="script/server.js"></script> -->
+    <script src="js/app.js"></script>
+</body>
+</html>
